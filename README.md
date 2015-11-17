@@ -3,6 +3,8 @@ A Pomodoro timer app（swift）
 
 This is a part of the source code.Hope can give you some reference if you want to make a PomodoroTimer.
 
+You can buy the whole app on Appstore.
+
 Include:UI design(Sketch file),PomodoroTimer,Localization,Custum segue,custum dialog,play background sound,prevent screen lock,and more...
 
 ####中文
