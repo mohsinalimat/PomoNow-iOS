@@ -93,7 +93,6 @@ About:
 
 Made by Megabits(megabits_mzq@icloud.com). We look forward to hearing from you.
 
-[](http://imgur.com/RfVLoKA)
 ####License
 
 The MIT License (MIT)
