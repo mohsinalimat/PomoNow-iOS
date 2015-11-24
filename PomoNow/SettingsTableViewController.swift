@@ -73,7 +73,7 @@ class SettingsTableViewController: UITableViewController {
             if indexPath.section == 0 {
                 switch indexPath.row{
                 case 5:
-                    DatePickerDialog().show(NSLocalizedString("Set Pomodoro Length", comment: "spl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.pomoTime), datePickerMode: .CountDownTimer) {
+                    Dialog().showDatePicker(NSLocalizedString("Set Pomodoro Length", comment: "spl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.pomoTime), datePickerMode: .CountDownTimer) {
                         (timer) -> Void in
                         let setTimer = Int(timer - (timer % 60))
                         if setTimer != pomodoroClass.pomoTime {
@@ -83,7 +83,7 @@ class SettingsTableViewController: UITableViewController {
                         self.workLabel.text = self.updateDisplay(0)
                     }
                 case 6:
-                    DatePickerDialog().show(NSLocalizedString("Set Break Length", comment: "sbl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.breakTime), datePickerMode: .CountDownTimer) {
+                    Dialog().showDatePicker(NSLocalizedString("Set Break Length", comment: "sbl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.breakTime), datePickerMode: .CountDownTimer) {
                         (timer) -> Void in
                         let setTimer = Int(timer - (timer % 60))
                         if setTimer != pomodoroClass.breakTime {
@@ -93,7 +93,7 @@ class SettingsTableViewController: UITableViewController {
                         self.breakLabel.text = self.updateDisplay(1)
                     }
                 case 7:
-                    DatePickerDialog().show(NSLocalizedString("Set Long Break Length", comment: "slbl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.longBreakTime), datePickerMode: .CountDownTimer) {
+                    Dialog().showDatePicker(NSLocalizedString("Set Long Break Length", comment: "slbl"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"),defaultTime: Double(pomodoroClass.longBreakTime), datePickerMode: .CountDownTimer) {
                         (timer) -> Void in
                         let setTimer = Int(timer - (timer % 60))
                         if setTimer != pomodoroClass.longBreakTime {
@@ -103,7 +103,7 @@ class SettingsTableViewController: UITableViewController {
                         self.longBreakLabel.text = self.updateDisplay(2)
                     }
                 case 8:
-                    PickerDialog().show(NSLocalizedString("Set Long break delay", comment: "slbd"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"), defaults: pomodoroClass.longBreakCount - 1) {
+                    Dialog().showPicker(NSLocalizedString("Set Long break delay", comment: "slbd"), doneButtonTitle: NSLocalizedString("Done", comment: "done"), cancelButtonTitle: NSLocalizedString("Cancel", comment: "cancel"), defaults: pomodoroClass.longBreakCount - 1) {
                         (rowSelect) -> Void in
                         if Int(rowSelect) + 1 != pomodoroClass.longBreakCount {
                             pomodoroClass.longBreakCount = Int(rowSelect) + 1

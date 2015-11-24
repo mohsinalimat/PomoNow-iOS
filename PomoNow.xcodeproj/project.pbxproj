@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		C039986A1BBE3C8C00982D9D /* AnimationToList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03998691BBE3C8C00982D9D /* AnimationToList.swift */; };
 		C039986C1BBE3D7800982D9D /* AnimationFromList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039986B1BBE3D7800982D9D /* AnimationFromList.swift */; };
-		C03AED801BD0014A006249FD /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03AED7F1BD0014A006249FD /* DatePickerDialog.swift */; };
 		C040E2DB1BB038D200BA5ABF /* Pomoing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C040E2D81BB038D200BA5ABF /* Pomoing.mp3 */; };
 		C040E2DC1BB038D200BA5ABF /* Start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C040E2D91BB038D200BA5ABF /* Start.mp3 */; };
 		C040E2DD1BB038D200BA5ABF /* Stop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C040E2DA1BB038D200BA5ABF /* Stop.mp3 */; };
 		C0497EA51BB973B10039E47E /* PomoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0497EA41BB973B10039E47E /* PomoListViewController.swift */; };
-		C07BD15D1BD142A2004ABB48 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BD15C1BD142A2004ABB48 /* PickerDialog.swift */; };
+		C07265B11C048D9900AADFC3 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07265B01C048D9900AADFC3 /* Dialog.swift */; };
 		C07C67171BA9C7F60057C72A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C67161BA9C7F60057C72A /* AppDelegate.swift */; };
 		C07C671F1BA9C7F60057C72A /* PomoNow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C671D1BA9C7F60057C72A /* PomoNow.storyboard */; };
 		C07C67211BA9C7F60057C72A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07C67201BA9C7F60057C72A /* Images.xcassets */; };
@@ -49,12 +48,11 @@
 /* Begin PBXFileReference section */
 		C03998691BBE3C8C00982D9D /* AnimationToList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationToList.swift; sourceTree = "<group>"; };
 		C039986B1BBE3D7800982D9D /* AnimationFromList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFromList.swift; sourceTree = "<group>"; };
-		C03AED7F1BD0014A006249FD /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		C040E2D81BB038D200BA5ABF /* Pomoing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pomoing.mp3; path = Sound/Pomoing.mp3; sourceTree = SOURCE_ROOT; };
 		C040E2D91BB038D200BA5ABF /* Start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Start.mp3; path = Sound/Start.mp3; sourceTree = SOURCE_ROOT; };
 		C040E2DA1BB038D200BA5ABF /* Stop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Stop.mp3; path = Sound/Stop.mp3; sourceTree = SOURCE_ROOT; };
 		C0497EA41BB973B10039E47E /* PomoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomoListViewController.swift; sourceTree = "<group>"; };
-		C07BD15C1BD142A2004ABB48 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		C07265B01C048D9900AADFC3 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		C07C67111BA9C7F60057C72A /* PomoNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07C67151BA9C7F60057C72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07C67161BA9C7F60057C72A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,8 +170,7 @@
 				C07C673F1BA9CAD90057C72A /* Pomodoro.swift */,
 				C07C67161BA9C7F60057C72A /* AppDelegate.swift */,
 				C07C673B1BA9C85C0057C72A /* CProgressView.swift */,
-				C03AED7F1BD0014A006249FD /* DatePickerDialog.swift */,
-				C07BD15C1BD142A2004ABB48 /* PickerDialog.swift */,
+				C07265B01C048D9900AADFC3 /* Dialog.swift */,
 				C040E2D71BB038BE00BA5ABF /* Sounds */,
 				C081E7801BAEF9E10084A737 /* Custom Fonts */,
 				C07C67221BA9C7F60057C72A /* LaunchScreen.xib */,
@@ -334,14 +331,13 @@
 				C07C67171BA9C7F60057C72A /* AppDelegate.swift in Sources */,
 				C086E0631BCD54E3000BB4BB /* SettingsTableViewController.swift in Sources */,
 				C0497EA51BB973B10039E47E /* PomoListViewController.swift in Sources */,
+				C07265B11C048D9900AADFC3 /* Dialog.swift in Sources */,
 				C07C67401BA9CAD90057C72A /* Pomodoro.swift in Sources */,
 				C08456F31BBF8F3600703190 /* FadeSegueUnwind.swift in Sources */,
 				C084DF151BD3353A005206C1 /* TagSelectView.swift in Sources */,
 				C039986A1BBE3C8C00982D9D /* AnimationToList.swift in Sources */,
-				C07BD15D1BD142A2004ABB48 /* PickerDialog.swift in Sources */,
 				C09C73BB1BBF85870051CE9A /* SettingsViewController.swift in Sources */,
 				C09C73BD1BBF85AA0051CE9A /* FadeSegue.swift in Sources */,
-				C03AED801BD0014A006249FD /* DatePickerDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_ENTITLEMENTS = PomoNow/PomoNow.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PomoNow/Info.plist;
@@ -530,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_ENTITLEMENTS = PomoNow/PomoNow.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PomoNow/Info.plist;

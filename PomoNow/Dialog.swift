@@ -2,15 +2,21 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class DatePickerDialog: UIView {
+class Dialog: UIView, UIPickerViewDelegate, UIPickerViewDataSource{
     
     typealias DatePickerCallback = (timer: NSTimeInterval) -> Void
+    typealias PickerCallback = (rowSelect:Int) -> Void
     
     /* Consts */
     private let kDatePickerDialogDefaultButtonHeight:       CGFloat = 50
     private let kDatePickerDialogDefaultButtonSpacerHeight: CGFloat = 1
     private let kDatePickerDialogCornerRadius:              CGFloat = 7
     private let kDatePickerDialogDoneButtonTag:             Int     = 1
+    
+    private let kPickerDialogDefaultButtonHeight:       CGFloat = 50
+    private let kPickerDialogDefaultButtonSpacerHeight: CGFloat = 1
+    private let kPickerDialogCornerRadius:              CGFloat = 7
+    private let kPickerDialogDoneButtonTag:             Int     = 1
     
     /* Views */
     private var dialogView:   UIView!
@@ -19,17 +25,44 @@ class DatePickerDialog: UIView {
     private var cancelButton: UIButton!
     private var doneButton:   UIButton!
     
+    private var Picker:   UIPickerView!
+    private var selected = false
+    private var nowDialog = 0
+    
+    private var taskAdd:      UIView!
+    
     /* Vars */
     private var defaultTime:    NSTimeInterval?
     private var datePickerMode: UIDatePickerMode?
     private var callback:       DatePickerCallback?
     
+    var rowSelected = 0
+    var defaultRow:Int!
+    var numbers = ["1","2","3","4","5","6","7","8","9","10"]
+    private var pcallback:       PickerCallback?
+    
+    //delegate
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return numbers[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        rowSelected = row
+        selected = true
+    }
     
     /* Overrides */
     init() {
         super.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
-        
-        setupView()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -59,7 +92,9 @@ class DatePickerDialog: UIView {
     }
     
     /* Create the dialog view, and animate opening the dialog */
-    func show(title: String, doneButtonTitle: String = "Done", cancelButtonTitle: String = "Cancel", defaultTime: NSTimeInterval  = NSTimeInterval(), datePickerMode: UIDatePickerMode = .DateAndTime, callback: DatePickerCallback) { //此处设置传入参数
+    func showDatePicker(title: String, doneButtonTitle: String = "Done", cancelButtonTitle: String = "Cancel", defaultTime: NSTimeInterval  = NSTimeInterval(), datePickerMode: UIDatePickerMode = .DateAndTime, callback: DatePickerCallback) { //此处设置传入参数
+        nowDialog = 0
+        setupView()
         self.titleLabel.text = title
         self.doneButton.setTitle(doneButtonTitle, forState: .Normal)
         self.cancelButton.setTitle(cancelButtonTitle, forState: .Normal)
@@ -68,6 +103,64 @@ class DatePickerDialog: UIView {
         self.defaultTime = defaultTime
         self.datePicker.datePickerMode = self.datePickerMode ?? .Date
         self.datePicker.countDownDuration = self.defaultTime ?? NSTimeInterval()
+        
+        /* */
+        UIApplication.sharedApplication().windows.first!.addSubview(self)
+        UIApplication.sharedApplication().windows.first!.endEditing(true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        /* Anim */
+        UIView.animateWithDuration(
+            0.2,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveEaseInOut,
+            animations: { () -> Void in
+                self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                self.dialogView!.layer.opacity = 1
+                self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
+            },
+            completion: nil
+        )
+    }
+    
+    func showPicker(title: String, doneButtonTitle: String = "Done", cancelButtonTitle: String = "Cancel", defaults: Int = 1, callback: PickerCallback) { //此处设置传入参数
+        nowDialog = 1
+        setupView()
+        self.titleLabel.text = title
+        self.doneButton.setTitle(doneButtonTitle, forState: .Normal)
+        self.cancelButton.setTitle(cancelButtonTitle, forState: .Normal)
+        self.pcallback = callback
+        self.defaultRow = defaults
+        self.Picker.selectRow(defaults, inComponent: 0, animated: true)
+        
+        /* */
+        UIApplication.sharedApplication().windows.first!.addSubview(self)
+        UIApplication.sharedApplication().windows.first!.endEditing(true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        /* Anim */
+        UIView.animateWithDuration(
+            0.2,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveEaseInOut,
+            animations: { () -> Void in
+                self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                self.dialogView!.layer.opacity = 1
+                self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
+            },
+            completion: nil
+        )
+    }
+    
+    func showAddTask(title: String, doneButtonTitle: String = "Done", cancelButtonTitle: String = "Cancel", callback: DatePickerCallback) { //此处设置传入参数
+        nowDialog = 2
+        setupView()
+        self.titleLabel.text = title
+        self.doneButton.setTitle(doneButtonTitle, forState: .Normal)
+        self.cancelButton.setTitle(cancelButtonTitle, forState: .Normal)
+        self.callback = callback
         
         /* */
         UIApplication.sharedApplication().windows.first!.addSubview(self)
@@ -121,12 +214,18 @@ class DatePickerDialog: UIView {
     /* Creates the container view here: create the dialog, then add the custom content and buttons */
     private func createContainerView() -> UIView {
         let screenSize = countScreenSize()
-        let dialogSize = CGSizeMake(
+        var dialogSize = CGSizeMake(
             300,
             230
                 + kDatePickerDialogDefaultButtonHeight
                 + kDatePickerDialogDefaultButtonSpacerHeight)
-        
+        if nowDialog == 2 {
+            dialogSize = CGSizeMake(
+                300,
+                130
+                    + kDatePickerDialogDefaultButtonHeight
+                    + kDatePickerDialogDefaultButtonSpacerHeight)
+        }
         // For the black background
         self.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
         
@@ -164,15 +263,27 @@ class DatePickerDialog: UIView {
         self.titleLabel.textAlignment = NSTextAlignment.Center
         self.titleLabel.font = UIFont.boldSystemFontOfSize(17)
         dialogContainer.addSubview(self.titleLabel)
-        
         self.datePicker = UIDatePicker(frame: CGRectMake(0, 30, 0, 0))
         self.datePicker.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin
         self.datePicker.frame.size.width = 300
-        dialogContainer.addSubview(self.datePicker)
         
+        self.Picker = UIPickerView(frame: CGRectMake(0, 30, 0, 0))
+        self.Picker.delegate = self
+        self.Picker.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin
+        self.Picker.frame.size.width = 300
+        
+        self.taskAdd = TagSelectView.instanceFromNib()
+        self.taskAdd.frame = CGRectMake(0, 30, 300, 100)
+        
+        if nowDialog == 0 {
+            dialogContainer.addSubview(self.datePicker)
+        } else if nowDialog == 1 {
+            dialogContainer.addSubview(self.Picker)
+        } else if nowDialog == 2 {
+            dialogContainer.addSubview(self.taskAdd)
+        }
         // Add the buttons
         addButtonsToView(dialogContainer)
-        
         return dialogContainer
     }
     
@@ -201,7 +312,14 @@ class DatePickerDialog: UIView {
             buttonWidth,
             kDatePickerDialogDefaultButtonHeight
         )
-        self.doneButton.tag = kDatePickerDialogDoneButtonTag
+        if nowDialog == 0 {
+            self.doneButton.tag = kDatePickerDialogDoneButtonTag
+        } else if nowDialog == 1 {
+            self.doneButton.tag = kPickerDialogDoneButtonTag
+        } else if nowDialog == 2 {
+            self.doneButton.tag = kDatePickerDialogDoneButtonTag
+        }
+        
         self.doneButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
         self.doneButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
         self.doneButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
@@ -213,6 +331,14 @@ class DatePickerDialog: UIView {
     func buttonTapped(sender: UIButton!) {
         if sender.tag == kDatePickerDialogDoneButtonTag {
             self.callback?(timer: self.datePicker.countDownDuration)
+        }
+        if sender.tag == kPickerDialogDoneButtonTag {
+            if selected {
+                self.pcallback?(rowSelect: rowSelected)
+            } else {
+                self.pcallback?(rowSelect: defaultRow)
+            }
+            
         }
         
         close()
