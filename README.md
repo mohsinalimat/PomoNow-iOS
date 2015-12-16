@@ -2,6 +2,7 @@
 A Pomodoro timer app（swift）
 
 This is a part of the source code.Hope can give you some reference if you want to make a PomodoroTimer.
+这是PomoNow的部分源码，如果您想自己做一个番茄钟的话，可以作为参考。
 
 You can buy the whole app on [Appstore](https://itunes.apple.com/us/app/id1052803982).
 
