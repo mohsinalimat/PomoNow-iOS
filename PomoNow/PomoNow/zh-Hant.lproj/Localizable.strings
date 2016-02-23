@@ -1,0 +1,75 @@
+/* addtask */
+"Add task" = "添加任務";
+
+/* cancel */
+"Cancel" = "取消";
+
+/* Do you like PomoNow? Please tell us. */
+"Do you like PomoNow? Please tell us." = "喜歡PomoNow嗎？請告訴我們。";
+
+/* done */
+"Done" = "確定";
+
+/* Fri */
+"Fri" = "五";
+
+/* Mon */
+"Mon" = "一";
+
+/* OK */
+"OK" = "好";
+
+/* Pomodoro Complete! */
+"Pomodoro Complete!" = "專注完成！";
+
+/* pd */
+"Pomodoros" = "專注";
+
+/* Rate PomoNow */
+"Rate PomoNow" = "為PomoNow評分";
+
+/* Sat */
+"Sat" = "六";
+
+/* sbl */
+"Set Break Length" = "設置休息時間";
+
+/* slbl */
+"Set Long Break Length" = "設置長時休息時間";
+
+/* slbd */
+"Set Long break delay" = "設置長時休息延遲";
+
+/* spl */
+"Set Pomodoro Length" = "設置專注時間";
+
+/* Start with a task */
+"Start with a task" = "從一個任務開始";
+
+/* Sun */
+"Sun" = "日";
+
+/* Take a break. */
+"Take a break." = "休息一下";
+
+/* Thu */
+"Thu" = "四";
+
+/* Time to work! */
+"Time to work!" = "工作時間到！";
+
+/* Tue */
+"Tue" = "二";
+
+/* Wed */
+"Wed" = "三";
+
+/* hour */
+"h" = "時";
+
+/* min */
+"min" = "分";
+
+/* open */
+"open" = "打開";
+
