@@ -10,7 +10,7 @@ Include:UI design(Sketch file),PomodoroTimer,Localization,Custum segue,custum di
 
 本开源版本是由完整版本剪成的，本地化文件部分和pod部分会有完整版使用的文件，希望不要给您阅读代码带来疑惑。
 
-感谢PC426[PC426](http://www.pc426.com)的 Lee Haruki 为本App作日本语本地化翻译
+感谢[PC426](http://www.pc426.com)的 Lee Haruki 为本App作日本语本地化翻译
 
 #中文
 
