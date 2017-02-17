@@ -1,72 +1,140 @@
-/* addtask */
+/* o'clock */
+"  o'clock " = " 到整点 ";
+
+/* +1h */
+" +1h " = " +1小时 ";
+
+/* Selected */
+" Selected" = "已选定";
+
+/* Add task */
 "Add task" = "添加任务";
 
-/* cancel
-   Cancel */
+/* Aim */
+"Aim" = "目标";
+
+/* Aim：Not set */
+"Aim：Not set" = "目标番茄数未设定";
+
+/* All */
+"All" = "全部";
+
+/* Break Complete. */
+"Break Complete." = "休息结束。";
+
+/* Cancel */
 "Cancel" = "取消";
 
-/* Do you like PomoNow? Please tell us. */
-"Do you like PomoNow? Please tell us." = "喜欢PomoNow吗？请告诉我们。";
+/* Current time: */
+"Current time:" = "当前时间：";
 
-/* done */
-"Done" = "确定";
+/* Details */
+"Details" = "细节";
 
-/* Fri */
-"Fri" = "五";
+/* Done */
+"Done" = "完成";
 
-/* Mon */
-"Mon" = "一";
+/* Finish */
+"Finish" = "完成";
 
-/* OK */
-"OK" = "好哒";
+/* Finished */
+"Finished" = "完成的番茄";
 
-/* Pomodoro Complete! */
-"Pomodoro Complete!" = "专注完成！";
+/* Great! */
+"Great!" = "赞！";
 
-/* pd */
-"Pomodoros" = "专注";
+/* Hours */
+"Hours" = "小时";
 
-/* Rate PomoNow */
-"Rate PomoNow" = "为PomoNow评分";
+/* Last week */
+"Last week" = "上周";
 
-/* Sat */
-"Sat" = "六";
+/* Loading */
+"Loading" = "加载中";
 
-/* sbl */
+/* Long press to start */
+"Long press to start" = "长按屏幕开始计时";
+
+/* Minutes */
+"Minutes" = "分";
+
+/* No data */
+"No data" = "暂无数据";
+
+/* No details */
+"No details" = "无细节数据";
+
+/* No task for today */
+"No task for today" = "今天没有任务";
+
+/* Not Available */
+"Not Available" = "暂无数据";
+
+/* Not available in quick timer mode */
+"Not available in quick timer mode" = "任务在快速计时模式不可用";
+
+/* Pomodoro Complete. */
+"Pomodoro Complete." = "专注结束。";
+
+/* Quick timer mode */
+"Quick timer mode" = "快速计时模式";
+
+/* Rotate crown up */
+"Rotate crown up" = "向上旋转表冠";
+
+/* Seconds */
+"Seconds" = "秒";
+
+/* Set Break Length */
 "Set Break Length" = "设置休息时间";
 
-/* slbl */
-"Set Long Break Length" = "设置长时休息时间";
+/* Set Long Break Length */
+"Set Long Break Length" = "设置长休息时间";
 
-/* slbd */
-"Set Long break delay" = "设置长时休息延迟";
+/* Set Long break delay */
+"Set Long break delay" = "设置长休息延迟";
 
-/* spl */
+/* Set Pomodoro Length */
 "Set Pomodoro Length" = "设置专注时间";
 
-/* Start with a task */
-"Start with a task" = "从一个任务开始";
-
-/* Sun */
-"Sun" = "日";
+/* Swipe up anywhere for more detail */
+"Swipe up anywhere for more detail" = "在任意位置上滑查看任务详情";
 
 /* Take a break. */
-"Take a break." = "休息一下";
+"Take a break." = "休息一下。";
 
-/* Thu */
-"Thu" = "四";
+/* Tap anywhere to stop */
+"Tap anywhere to stop" = "轻触任意位置停止计时";
+
+/* Tap timer to stop */
+"Tap timer to stop" = "轻触时钟停止计时";
+
+/* Target time: */
+"Target time:" = "目标时间：";
+
+/* This month */
+"This month" = "本月";
+
+/* This week */
+"This week" = "本周";
+
+/* This year */
+"This year" = "今年";
 
 /* Time to work! */
-"Time to work!" = "工作时间到！";
+"Time to work!" = "该工作啦！";
 
-/* Tue */
-"Tue" = "二";
+/* Time up. */
+"Time up." = "时间到。";
 
-/* Wed */
-"Wed" = "三";
+/* Today */
+"Today" = "今天";
 
-/* hour */
-"h" = "时";
+/* Work Complete. */
+"Work Complete." = "工作完成。";
+
+/* h */
+"h" = "小时";
 
 /* min */
 "min" = "分";
@@ -74,3 +142,16 @@
 /* open */
 "open" = "打开";
 
+/* pomodoro */
+"pomodoro" = "番茄";
+
+/* Tap here back to the timer */
+"Tap here back to the timer" = "点此返回";
+
+"This device can't send E-mail." = "本机不能发送邮件。";
+
+"Rate PomoNow" = "给 PomoNow 评分";
+
+"Do you like PomoNow? Please tell us." = "喜欢 PomoNow 吗？请告诉我们。";
+
+"OK" = "好";

@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PomoNow-watch (Complication).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>PomoNow-watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>PomoNow-watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>PomoNow-widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>PomoNow.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,12 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C07C67101BA9C7F60057C72A</key>
+		<key>C02A5BFC1D92508F00DFD1B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C07C67281BA9C7F60057C72A</key>
+		<key>C02BFCDD1D9F8EA1009E01D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0419FAE1D19321300ADD255</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C05E40BE1D9C9AE000F51874</key>
 		<dict>
 			<key>primary</key>
 			<true/>

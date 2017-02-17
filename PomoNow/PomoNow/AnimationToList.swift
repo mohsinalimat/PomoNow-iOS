@@ -1,75 +1,80 @@
 //
-//  MagicMoveTransion.swift
+//  AnimationToList.swift
 //  PomoNow
 //
-//  Created by Megabits on 15/7/13.
-//  Copyright © 2015年 ScrewBox. All rights reserved.
+//  Created by 孟金羽 on 16/8/9.
+//  Copyright © 2016年 JinyuMeng. All rights reserved.
 //
 
 import UIKit
 
 class AnimationToList: NSObject, UIViewControllerAnimatedTransitioning {
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 1.5
     }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        //获取动画的源控制器和目标控制器
-        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! PomodoroViewController
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! PomoListViewController
-        let container = transitionContext.containerView()
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        //获取View的上下文
+        let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! MainViewController
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! ListViewController
+        let container = transitionContext.containerView
         
-        let snap = fromVC.TimerView.snapshotViewAfterScreenUpdates(false)
-        snap.frame = container!.convertRect(fromVC.TimerView.frame, fromView: fromVC.TimerViewContainer)
-        
-        let snapRound = fromVC.round.snapshotViewAfterScreenUpdates(false)
-        snapRound.frame = container!.convertRect(fromVC.round.frame, fromView: fromVC.view)
-        
-        fromVC.TimerView.hidden = true
-        
-        toVC.view.frame = transitionContext.finalFrameForViewController(toVC)
         toVC.view.alpha = 0
-        snapRound.alpha = 0
+        toVC.view.frame = transitionContext.finalFrame(for: toVC)
+        container.addSubview(toVC.view)
         
-
-        //代理管理以下view
-        container!.addSubview(snap)
-        container!.addSubview(snapRound)
-        container!.addSubview(toVC.view)
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
         
-        UIView.animateWithDuration(0.1, delay:0,options:UIViewAnimationOptions.TransitionNone,  animations: { () -> Void in
-            fromVC.taskLabel.alpha = 0
-            fromVC.readme.alpha = 0
-            }) { (finish: Bool) -> Void in
-                fromVC.round.hidden = true
-                snapRound.alpha = 1
+        let mask = UIView(frame:CGRect(origin: CGPoint(x: 0,y: screenHeight), size: CGSize(width: screenWidth, height: screenHeight))) //遮挡view
+        if isDarkMode {
+            mask.backgroundColor = UIColor(red:0.1922, green:0.1922, blue:0.1922, alpha:1.0)
+        } else {
+            mask.backgroundColor = UIColor.white
         }
         
-        UIView.animateWithDuration(0.25, delay:0.1,options:UIViewAnimationOptions.CurveEaseInOut,  animations: { () -> Void in
-            toVC.view.layoutIfNeeded()
-            toVC.view.setNeedsDisplay()
-            snapRound.frame = toVC.round.frame
-            snap.frame = toVC.TimerView.frame
-            }) { (finish: Bool) -> Void in
-        }
+        container.addSubview(mask)
         
-        UIView.animateWithDuration(0.25, delay:0.8,options:UIViewAnimationOptions.TransitionNone,  animations: { () -> Void in
-            snap.alpha = 0
-            }) { (finish: Bool) -> Void in
+        toVC.view.layoutIfNeeded() //获取正确的目标位置
+        let topViewFrame = container.convert(toVC.topView.frame, from: fromVC.view)
+        
+        var QuickTimerViewNeesSetAlpha = false
+        
+        //动画序列
+        if isQuickTimerMode {
+            fromVC.pomodoroView.alpha = 0
         }
-        UIView.animateWithDuration(0.15, delay:0.35,options:UIViewAnimationOptions.TransitionNone,  animations: { () -> Void in
-            snapRound.alpha = 0
+        UIView.animate(withDuration: 0.1, delay:0,options:UIViewAnimationOptions(),  animations: { () -> Void in
+            if fromVC.quickTimerView.alpha == 1 {
+                fromVC.quickTimerView.alpha = 0
+                QuickTimerViewNeesSetAlpha = true
+            }
+            fromVC.pomodoroView.alpha = 0
+        }) { (finish: Bool) -> Void in
+        }
+        UIView.animate(withDuration: 0.3, delay:0.1,options:UIViewAnimationOptions(),  animations: { () -> Void in
+            mask.frame = CGRect(x: 0, y: topViewFrame.height + topViewFrame.origin.y, width: screenWidth, height: screenHeight)
+        }) { (finish: Bool) -> Void in
+        }
+        if isQuickTimerMode {
+            toVC.timeLabel.text = quickTimerClass.timerLabel
+        } else {
+            toVC.timeLabel.text = pomodoroTimer.timerLabel
+        }
+        toVC.setStyleMode()
+        fromVC.setStyleMode()
+        UIView.animate(withDuration: 0.1, delay:0.4,options:UIViewAnimationOptions(),  animations: { () -> Void in
             toVC.view.alpha = 1
-            }) { (finish: Bool) -> Void in
-            //让系统管理 navigation
-            fromVC.TimerView.hidden = false
-            fromVC.round.hidden = false
-            fromVC.taskLabel.alpha = 1
-            fromVC.readme.alpha = 1
-            snap.removeFromSuperview()
-            snapRound.removeFromSuperview()
+        }) { (finish: Bool) -> Void in
+        }
+        UIView.animate(withDuration: 0.1, delay:0.5,options:UIViewAnimationOptions(),  animations: { () -> Void in
+            mask.alpha = 0
+        }) { (finish: Bool) -> Void in
+            fromVC.pomodoroView.alpha = 1
+            if QuickTimerViewNeesSetAlpha {
+                fromVC.quickTimerView.alpha = 1
+            }
+            mask.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
-        
     }
 }
