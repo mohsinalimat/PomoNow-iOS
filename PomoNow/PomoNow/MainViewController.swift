@@ -22,7 +22,6 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
     var timerGestureView: CProgressView? = nil
     var vibrancyView: UIVisualEffectView? = nil
     var timer: Timer? = nil
-    var isAnimating = false
         
     @IBAction func startGesture(_ sender: UILongPressGestureRecognizer) {     
         if pomodoroTimer.pomoMode == 0 {
@@ -289,7 +288,7 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
     }
     
     //动画部分
-    var aniMode = true //填充进程还是收回进程
+    var aniMode = true //填充进程false 还是收回进程true
     func processToZero() { //更新进度条状态
         stopTimer()
         aniMode = true
@@ -306,7 +305,6 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
         if aniMode {
             if timerGestureView!.valueProgress > 0 {
                 timerGestureView!.valueProgress -= 1
-                timerGestureView!.setNeedsDisplay()
             }else {
                 timerGestureView!.valueProgress = 0
                 stopTimer()
@@ -315,7 +313,6 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
         } else {
             if timerGestureView!.valueProgress < 100 {
                 timerGestureView!.valueProgress += 1
-                timerGestureView!.setNeedsDisplay()
             }else {
                 timerGestureView!.valueProgress = 100
                 stopTimer()
@@ -336,13 +333,11 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
     }
     
     func showGestureView() {
-        isAnimating = true
-        self.gestureView.isHidden = false
+        gestureView.isHidden = false
         UIView.animate(withDuration: 0.5, delay:0,options:UIViewAnimationOptions.beginFromCurrentState,  animations: { () -> Void in
             self.blurView?.effect = UIBlurEffect(style: .dark)
             self.timerGestureView?.alpha = 1
         }) { (finish: Bool) -> Void in
-            self.isAnimating = false
         } //显示进度条
     }
     
@@ -351,7 +346,7 @@ class MainViewController: UIViewController ,UINavigationControllerDelegate{
             self.blurView?.effect = nil
             self.timerGestureView?.alpha = 0
         }) { (finish: Bool) -> Void in
-            if !self.isAnimating {
+            if self.aniMode {
                 self.gestureView.isHidden = true
             }
             
