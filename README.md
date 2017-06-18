@@ -1,4 +1,4 @@
-# PomoNow － Pomodoro Timer and To-Do List
+# PomoNow 2 － Pomodoro Timer and To-Do List
 A Pomodoro timer app（swift）
 
 This is a part of the source code.Hope can give you some reference if you want to make a PomodoroTimer.
@@ -10,7 +10,7 @@ You can buy PomoNow on [Appstore](https://itunes.apple.com/us/app/id1052803982).
 Using open source project：
 [Gidole - Open Source Modern DIN (MIT)](https://github.com/larsenwork/Gidole)
 
-感谢[PC426](http://www.pc426.com)的 Lee Haruki 为 1.0 版本作日本语本地化翻译
+感谢 [PC426](http://www.pc426.com) 的 Lee Haruki 为 1.0 版本作日本语本地化翻译
 
 #中文
 
