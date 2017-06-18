@@ -1,0 +1,17 @@
+PODS:
+  - Crashlytics (3.7.1):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.6)
+  - SwiftDate (1.2)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - SwiftDate
+
+SPEC CHECKSUMS:
+  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
+  Fabric: 1abc1e59f11fa39ede6f690ef7309d8563e3ec59
+  SwiftDate: 49ebd4efb5f82336cfc2b1d8a6622f47d4b17370
+
+COCOAPODS: 0.39.0
