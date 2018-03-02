@@ -1,140 +1,41 @@
-/* o'clock */
-"  o'clock " = " 到整點 ";
-
-/* +1h */
-" +1h " = " +1小時 ";
-
-/* Selected */
-" Selected" = "已選定";
-
-/* Add task */
+/* addtask */
 "Add task" = "添加任務";
 
-/* Aim */
-"Aim" = "目標";
-
-/* Aim：Not set */
-"Aim：Not set" = "目標番茄數未設定";
-
-/* All */
-"All" = "全部";
-
-/* Break Complete. */
-"Break Complete." = "休息結束。";
-
-/* Cancel */
+/* cancel */
 "Cancel" = "取消";
 
-/* Current time: */
-"Current time:" = "當前時間：";
+/* done */
+"Done" = "確定";
 
-/* Details */
-"Details" = "細節";
+/* Focus Complete! */
+"Focus Complete!" = "專注完成！";
 
-/* Done */
-"Done" = "完成";
+/* pd */
+"Focus Cycle" = "番茄";
 
-/* Finish */
-"Finish" = "完成";
-
-/* Finished */
-"Finished" = "完成的番茄";
-
-/* Great! */
-"Great!" = "讚！";
-
-/* Hours */
-"Hours" = "小時";
-
-/* Last week */
-"Last week" = "上週";
-
-/* Loading */
-"Loading" = "加載中";
-
-/* Long press to start */
-"Long press to start" = "長按螢幕開始計時";
-
-/* Minutes */
-"Minutes" = "分";
-
-/* No data */
-"No data" = "暫無數據";
-
-/* No details */
-"No details" = "無細節數據";
-
-/* No task for today */
-"No task for today" = "今天沒有任務";
-
-/* Not Available */
-"Not Available" = "暫無數據";
-
-/* Not available in quick timer mode */
-"Not available in quick timer mode" = "任務在快速計時模式不可用";
-
-/* Pomodoro Complete. */
-"Pomodoro Complete." = "專注結束。";
-
-/* Quick timer mode */
-"Quick timer mode" = "快速計時模式";
-
-/* Rotate crown up */
-"Rotate crown up" = "向上旋轉表冠";
-
-/* Seconds */
-"Seconds" = "秒";
-
-/* Set Break Length */
+/* sbl */
 "Set Break Length" = "設置休息時間";
 
-/* Set Long Break Length */
-"Set Long Break Length" = "設置長休息時間";
+/* slbl */
+"Set Long Break Length" = "設置長時休息時間";
 
-/* Set Long break delay */
-"Set Long break delay" = "設置長休息延遲";
+/* slbd */
+"Set Long break delay" = "設置長時休息延遲";
 
-/* Set Pomodoro Length */
-"Set Pomodoro Length" = "設置專注時間";
+/* spl */
+"Set Focus Cycle Length" = "設置專注時間";
 
-/* Swipe up anywhere for more detail */
-"Swipe up anywhere for more detail" = "在任意位置上滑查看任務詳情";
+/* Start with a task */
+"Start with a task" = "從一個任務開始";
 
 /* Take a break. */
-"Take a break." = "休息一下。";
-
-/* Tap anywhere to stop */
-"Tap anywhere to stop" = "輕觸任意位置停止計時";
-
-/* Tap timer to stop */
-"Tap timer to stop" = "輕觸時鐘停止計時";
-
-/* Target time: */
-"Target time:" = "目標時間：";
-
-/* This month */
-"This month" = "本月";
-
-/* This week */
-"This week" = "本週";
-
-/* This year */
-"This year" = "今年";
+"Take a break." = "休息一下";
 
 /* Time to work! */
-"Time to work!" = "該工作啦！";
+"Time to work!" = "工作時間到！";
 
-/* Time up. */
-"Time up." = "時間到。";
-
-/* Today */
-"Today" = "今天";
-
-/* Work Complete. */
-"Work Complete." = "工作完成";
-
-/* h */
-"h" = "小時";
+/* hour */
+"h" = "時";
 
 /* min */
 "min" = "分";
@@ -142,16 +43,3 @@
 /* open */
 "open" = "打開";
 
-/* pomodoro */
-"pomodoro" = "番茄";
-
-/* Tap here back to the timer */
-"Tap here back to the timer" = "點此返回";
-
-"This device can't send E-mail." = "本機不能發送郵件。";
-
-"Rate PomoNow" = "给 PomoNow 評分";
-
-"Do you like PomoNow? Please tell us." = "喜歡 PomoNow 嗎？請告訴我們。";
-
-"OK" = "好";

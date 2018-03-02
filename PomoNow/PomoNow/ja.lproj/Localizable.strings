@@ -1,0 +1,45 @@
+/* addtask */
+"Add task" = "タスク追加";
+
+/* cancel */
+"Cancel" = "キャンセル";
+
+/* done */
+"Done" = "OK";
+
+/* Focus Complete! */
+"Focus Complete!" = "ポモドーロ完了！";
+
+/* pd */
+"Focus Cycle" = "ポモドーロ";
+
+/* sbl */
+"Set Break Length" = "短い休憩の長さ設定";
+
+/* slbl */
+"Set Long Break Length" = "長い休憩の長さ設定";
+
+/* slbd */
+"Set Long break delay" = "長い休憩の間設定";
+
+/* spl */
+"Set Focus Cycle Length" = "ポモドーロの長さ設定";
+
+/* Start with a task */
+"Start with a task" = "タスクから開始";
+
+/* Take a break. */
+"Take a break." = "ちょっと休憩しようか";
+
+/* Time to work! */
+"Time to work!" = "ポモドーロ開始！";
+
+/* hour */
+"h" = "時";
+
+/* min */
+"min" = "分";
+
+/* open */
+"open" = "開けます";
+

@@ -1,9 +1,9 @@
 # PomoNow 2 － Pomodoro Timer and To-Do List
-A Pomodoro timer app（swift）
+A Pomodoro timer app (swift 4)
 
-This is a part of the source code.Hope can give you some reference if you want to make a PomodoroTimer.
+This is the early version of PomoNow. Hope it can help you learn swift.
 
-这是 PomoNow 的部分源码，如果您想自己做一个番茄钟的话，可以作为参考。
+这是 PomoNow 的早期版本，希望它可以在你学习 Swift 的时候帮到你，没有更新为 Swift 4 的原始版本在 Old-1.0 文件夹中。
 
 You can buy PomoNow on [Appstore](https://itunes.apple.com/us/app/id1052803982).
 
